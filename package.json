@@ -1,6 +1,6 @@
 {
   "name": "throwaway-poc-bill-nye",
-  "version": "1.1.0",
+  "version": "3.1.0",
   "main": "index.js",
   "repository": "git@github.com:altiscope/throwaway-poc-bill-nye.git",
   "author": "Clayton Smith <clayton.smith@airbus-sv.com>",
