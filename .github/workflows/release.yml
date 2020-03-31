@@ -33,6 +33,12 @@ jobs:
           git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           git commit -m "release!"
           echo "ZZZ"
-          echo "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
-          remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
-          git push "${remote_repo}" HEAD:master --follow-tags --tags
+          #remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
+          #git push "${remote_repo}" HEAD:master --follow-tags --tags
+          #env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: throwaway-poc-beakmans-world
