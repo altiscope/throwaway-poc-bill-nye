@@ -27,9 +27,14 @@ jobs:
       - name: Copy artifact and tag release
         run: |
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
+          echo Before
+          cat $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file | echo
+          echo After
+          cat $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file | echo
           cd ./throwaway-poc-beakmans-world/
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "Add changes" -a
+          git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
+          git commit -m "release!"
           remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/throwaway-poc-beakmans-world.git"
           git push "${remote_repo}" HEAD:master --follow-tags --tags
