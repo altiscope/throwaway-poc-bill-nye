@@ -24,8 +24,9 @@ jobs:
         with:
             repository: altiscope/throwaway-poc-beakmans-world
             path: beakmans-world
-      - name: Copy artifact and tag release
+      - name: Set GitHub permissions
         uses: actions/checkout@v2
+      - name: Copy artifact and tag release
         run: |
           find /home
           cp -f $GITHUB_WORKSPACE/bill-nye/file  $GITHUB_WORKSPACE/beakmans-world/file
