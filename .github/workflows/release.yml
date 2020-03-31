@@ -18,12 +18,12 @@ jobs:
         uses: actions/checkout@v2
         with:
             repository: altiscope/throwaway-poc-bill-nye
-        path: bill-nye
+            path: bill-nye
       - name: Checkout beakman
         uses: actions/checkout@v2
         with:
             repository: altiscope/throwaway-poc-beakmans-world
-        path: beakmans-world
+            path: beakmans-world
       - name: Copy artifact and tag release
         run: |
           find .
