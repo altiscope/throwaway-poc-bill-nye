@@ -32,7 +32,9 @@ jobs:
           ls -al .
           echo RRRR
           ls -al ..
-          cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
+          echo QQQQ
+          ls -al ../..
+          cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/throwaway-poc-beakmans-world/file
           #cd $GITHUB_WORKSPACE/beakmans-world
           #git add $GITHUB_WORKSPACE/beakmans-world/file
           #ls -al $GITHUB_WORKSPACE/beakmans-world
