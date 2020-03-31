@@ -26,9 +26,9 @@ jobs:
             path: beakmans-world
       - name: Copy artifact and tag release
         run: |
-          find .
-          cp file  $GITHUB_WORKSPACE/beakmans-world/file
-          cd $GITHUB_WORKSPACE
+          find ..
+          cp -f $GITHUB_WORKSPACE/bill-nye/file  $GITHUB_WORKSPACE/beakmans-world/file
+          cd $GITHUB_WORKSPACE/beakmans-world
           git add .
           git commit -m Test
           git push
