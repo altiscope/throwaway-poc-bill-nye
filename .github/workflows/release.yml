@@ -26,13 +26,10 @@ jobs:
             path: throwaway-poc-beakmans-world
       - name: Copy artifact and tag release
         run: |
-          echo ZZZZ
-          ls -al ./throwaway-poc-beakmans-world/
-          echo RRRR
-          ls -al ./throwaway-poc-bill-nye/
-          echo QQQQ
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           cd ./throwaway-poc-beakmans-world/
-          git add file
-          git commit -m Test
-          git push
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
+          remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/throwaway-poc-beakmans-world.git"
+          git push "${remote_repo}" HEAD:master --follow-tags --tags
