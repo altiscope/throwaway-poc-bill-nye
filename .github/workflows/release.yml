@@ -33,9 +33,6 @@ jobs:
           echo QQQQ
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           cd ./throwaway-poc-beakmans-world/
-          ls -al
-          #cd $GITHUB_WORKSPACE/beakmans-world
-          #git add $GITHUB_WORKSPACE/beakmans-world/file
-          #ls -al $GITHUB_WORKSPACE/beakmans-world
-          #git commit -m Test
-          #git push
+          git add file
+          git commit -m Test
+          git push
