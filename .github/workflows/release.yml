@@ -18,25 +18,14 @@ jobs:
         uses: actions/checkout@v2
         with:
             repository: altiscope/throwaway-poc-bill-nye
-            path: bill-nye
       - name: Checkout beakman and copy artifact
         uses: actions/checkout@v2
         with:
             repository: altiscope/throwaway-poc-beakmans-world
-            path: beakmans-world
       - name: Set GitHub permissions
         uses: actions/checkout@v2
       - name: Copy artifact and tag release
         run: |
-          echo $GITHUB_WORKSPACE
-          pwd
-          echo Workspace
-          ls -al $GITHUB_WORKSPACE/
-          echo BillNye
-          ls -al $GITHUB_WORKSPACE/bill-nye
-          cp -f $GITHUB_WORKSPACE/bill-nye/file $GITHUB_WORKSPACE/beakmans-world/file
-          cd $GITHUB_WORKSPACE/beakmans-world
-          git add $GITHUB_WORKSPACE/beakmans-world/file
-          ls -al $GITHUB_WORKSPACE/beakmans-world
-          git commit -m Test
-          git push
+          echo ZZZZ
+          ls -al .
+          cp -f $GITHUB_WORKSPACE/file $GITHUB_WORKSPACE/beakmans-world/file
