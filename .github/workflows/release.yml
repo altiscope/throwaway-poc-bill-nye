@@ -32,5 +32,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           git commit -m "release!"
-          remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
+          echo "ZZZ"
+          echo "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
+          remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
           git push "${remote_repo}" HEAD:master --follow-tags --tags
