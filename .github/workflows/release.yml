@@ -42,5 +42,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: throwaway-poc-beakmans-world
-          repository: throwaway-poc-beakmans-world
+          repository: altiscope/throwaway-poc-beakmans-world
           force: true
