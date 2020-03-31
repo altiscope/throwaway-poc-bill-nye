@@ -24,8 +24,6 @@ jobs:
         with:
             repository: altiscope/throwaway-poc-beakmans-world
             path: throwaway-poc-beakmans-world
-      - name: Set GitHub permissions
-        uses: actions/checkout@v2
       - name: Copy artifact and tag release
         run: |
           echo ZZZZ
