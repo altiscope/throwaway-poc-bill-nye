@@ -32,6 +32,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           git commit -m "release!"
+          git remote set-url origin "git@github.com:altiscope/throwaway-poc-beakmans-world.git"
           git push https://${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git
           env:
             GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
