@@ -30,7 +30,7 @@ jobs:
           cd ./throwaway-poc-beakmans-world/
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "$GITHUB_ACTOR"
-          git config http.https://github.com/.extraheader "AUTHORIZATION: basic ${GITHUB_ACTOR}:${PERSONAL_ACCESS_TOKEN}"
+          git config http.https://github.com/.extraheader "AUTHORIZATION: basic ${PERSONAL_ACCESS_TOKEN}"
           git remote add github "https://github.com/altiscope/throwaway-poc-beakmans-world.git"
           git pull github master --ff-only
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
