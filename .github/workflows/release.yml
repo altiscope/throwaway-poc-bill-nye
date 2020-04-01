@@ -33,6 +33,7 @@ jobs:
           git pull github master --ff-only
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
+          git confit --list
           git commit -m "release!"
           echo "zzz"
           git push github HEAD:master
