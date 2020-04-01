@@ -24,7 +24,7 @@ jobs:
         with:
             repository: altiscope/throwaway-poc-beakmans-world
             path: throwaway-poc-beakmans-world
-      - name: Copy artifact and tag release
+      - name: Copy artifact and push
         run: |
           cp -f $GITHUB_WORKSPACE/throwaway-poc-bill-nye/file $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           cd ./throwaway-poc-beakmans-world/
@@ -32,15 +32,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add $GITHUB_WORKSPACE/throwaway-poc-beakmans-world/file
           git commit -m "release!"
-          echo "ZZZ"
-          #remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git"
-          #git push "${remote_repo}" HEAD:master --follow-tags --tags
-          #env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.RELEASE_PAT }}
-          directory: throwaway-poc-beakmans-world
-          repository: altiscope/throwaway-poc-beakmans-world
-          force: true
+          git push https://${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-beakmans-world.git
+          env:
+            GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
