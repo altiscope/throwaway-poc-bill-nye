@@ -21,9 +21,9 @@ jobs:
       - name: Copy artifact and push
         run: |
           set -x
-          cd ./throwaway-poc-bill-nye/
+          cd "${GITHUB_WORKSPACE}/throwaway-poc-bill-nye/"
           VERSION=`git describe --abbrev=0 --tags`
-          cd ./throwaway-poc-beakmans-world/
+          cd "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config user.name "${GITHUB_ACTOR}"
           git config --local --unset-all "http.https://github.com/.extraheader"
