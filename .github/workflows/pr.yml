@@ -21,7 +21,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         #- name: Version - patch
       #  run: sh ./scripts/version.sh patch
-    - run: cat /github/workflow/event.json
+      #- run: cat /github/workflow/event.json
+    - name: Dump GitHub context
+      env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "${GITHUB_CONTEXT}"
     - name: If PR is minor
       if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master' && contains(github.event.pull_request.labels.*.name, 'minor')
       run: sh ./scripts/version.sh minor
