@@ -33,16 +33,16 @@ jobs:
       if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
       run: |
         set -x
-        label = "patch"
+        LABEL="patch"
         if [ ${PR_LABEL_MINOR} ]; then
-            label = "minor"
+            LABEL="minor"
         fi
         if [ ${PR_LABEL_MAJOR} ]; then
-            label = "major"
+            LABEL="major"
         fi
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git config user.name "${GITHUB_ACTOR}"
         echo "Version Bump"
-        npm version ${label}
+        npm version ${LABEL}
         git push --tags 
 
