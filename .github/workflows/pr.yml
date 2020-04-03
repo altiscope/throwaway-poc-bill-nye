@@ -23,8 +23,8 @@ jobs:
           npm version patch
           set -x
           #cd ./throwaway-poc-beakmans-world/
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.name "${GITHUB_ACTOR}"
           #git config --global --unset-all "http.https://github.com/.extraheader"
           #git remote add github "https://${GITHUB_ACTOR}:${PERSONAL_ACCESS_TOKEN}@github.com/altiscope/throwaway-poc-bill-.git"
           #git pull github master --ff-only
@@ -33,4 +33,4 @@ jobs:
           git config --list
           git commit -m "release!"
           echo "zzz"
-          git push "https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/altiscope/throwaway-poc-bill-nye.git" --tags
+          git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-bill-nye.git" --tags
