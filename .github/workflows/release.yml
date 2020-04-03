@@ -32,8 +32,8 @@ jobs:
           cp -f "${GITHUB_WORKSPACE}/throwaway-poc-bill-nye/file" "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
           git add "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
           git config --list
-          git commit -m "release!"
+          git commit -m "${VERSION} released by ${GITHUB_ACTOR}"
           git tag ${VERSION}
-          git push github HEAD:master --tags
+          git push github HEAD:master --follow-tags
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.RELEASE_PAT }}

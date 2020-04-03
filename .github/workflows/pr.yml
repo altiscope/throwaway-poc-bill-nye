@@ -44,5 +44,5 @@ jobs:
         git config user.name "${GITHUB_ACTOR}"
         echo "Version Bump"
         npm version ${LABEL}
-        git push origin master --tags 
+        git push origin master --follow-tags 
 
