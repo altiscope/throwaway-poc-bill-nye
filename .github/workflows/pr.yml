@@ -28,14 +28,14 @@ jobs:
       run: echo "${GITHUB_CONTEXT}"
     - name: If PR is minor
       env:
-          PR_LABEL_MINOR: ${{ contains(github.event.pull_request.labels.*.name, 'minor') }}
+          PR_LABEL_PATCH: ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
           PR_LABEL_MAJOR: ${{ contains(github.event.pull_request.labels.*.name, 'major') }}
       if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
       run: |
         set -x
-        LABEL="patch"
-        if ${PR_LABEL_MINOR}; then
-            LABEL="minor"
+        LABEL="minor"
+        if ${PR_LABEL_PATCH}; then
+            LABEL="patch"
         fi
         if ${PR_LABEL_MAJOR}; then
             LABEL="major"
@@ -44,5 +44,5 @@ jobs:
         git config user.name "${GITHUB_ACTOR}"
         echo "Version Bump"
         npm version ${LABEL}
-        git push --tags 
+        git push origin master --tags 
 
