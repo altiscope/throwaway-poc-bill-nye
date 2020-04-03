@@ -25,7 +25,7 @@ jobs:
           #cd ./throwaway-poc-beakmans-world/
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config --global user.name "${GITHUB_ACTOR}"
-          git config --global --unset-all "http.https://github.com/.extraheader"
+          #git config --global --unset-all "http.https://github.com/.extraheader"
           #git remote add github "https://${GITHUB_ACTOR}:${PERSONAL_ACCESS_TOKEN}@github.com/altiscope/throwaway-poc-bill-.git"
           #git pull github master --ff-only
           #cp -f "${GITHUB_WORKSPACE}/throwaway-poc-bill-nye/file" "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
