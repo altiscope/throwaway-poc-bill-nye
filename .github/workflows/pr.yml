@@ -31,6 +31,6 @@ jobs:
           #cp -f "${GITHUB_WORKSPACE}/throwaway-poc-bill-nye/file" "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
           #git add "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
           git config --list
-          git commit -m "release!"
+          #git commit -m "release!"
           echo "zzz"
-          git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-bill-nye.git" --tags
+          git push --tags # "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/altiscope/throwaway-poc-bill-nye.git" --tags
