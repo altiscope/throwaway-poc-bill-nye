@@ -33,6 +33,4 @@ jobs:
           git config --list
           git commit -m "release!"
           echo "zzz"
-          git push github HEAD:master --tags
-      env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.RELEASE_PAT }}
+          git push "https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/altiscope/throwaway-poc-bill-nye.git" --tags
