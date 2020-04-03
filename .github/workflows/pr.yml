@@ -27,5 +27,22 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "${GITHUB_CONTEXT}"
     - name: If PR is minor
-      if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master' && contains(github.event.pull_request.labels.*.name, 'minor')
-      run: sh ./scripts/version.sh minor
+      env:
+          PR_LABEL_MINOR: ${{ contains(github.event.pull_request.labels.*.name, 'minor') }}
+          PR_LABEL_MAJOR: ${{ contains(github.event.pull_request.labels.*.name, 'major') }}
+      if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
+      run: |
+        set -x
+        label = "patch"
+        if [ ${PR_LABEL_MINOR} ]; then
+            label = "minor"
+        fi
+        if [ ${PR_LABEL_MAJOR} ]; then
+            label = "major"
+        fi
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git config user.name "${GITHUB_ACTOR}"
+        echo "Version Bump"
+        npm version ${label}
+        git push --tags 
+
