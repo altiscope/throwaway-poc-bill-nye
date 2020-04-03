@@ -19,12 +19,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Copy artifact and push
       run: |
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.name "${GITHUB_ACTOR}"
           echo "Version bump"
           npm version patch
           set -x
           #cd ./throwaway-poc-beakmans-world/
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config user.name "${GITHUB_ACTOR}"
           #git config --global --unset-all "http.https://github.com/.extraheader"
           #git remote add github "https://${GITHUB_ACTOR}:${PERSONAL_ACCESS_TOKEN}@github.com/altiscope/throwaway-poc-bill-.git"
           #git pull github master --ff-only
