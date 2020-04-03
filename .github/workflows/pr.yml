@@ -20,7 +20,7 @@ jobs:
     - name: Copy artifact and push
       run: |
           echo "Version bump"
-          npm version
+          npm version patch
           set -x
           #cd ./throwaway-poc-beakmans-world/
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
