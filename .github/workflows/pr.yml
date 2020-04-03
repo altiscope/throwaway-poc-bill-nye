@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Copy artifact and push
+      run: |
+          echo "Version bump"
+          npm version
+          set -x
+          #cd ./throwaway-poc-beakmans-world/
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.name "${GITHUB_ACTOR}"
+          git config --local --unset-all "http.https://github.com/.extraheader"
+          #git remote add github "https://${GITHUB_ACTOR}:${PERSONAL_ACCESS_TOKEN}@github.com/altiscope/throwaway-poc-bill-.git"
+          #git pull github master --ff-only
+          #cp -f "${GITHUB_WORKSPACE}/throwaway-poc-bill-nye/file" "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
+          #git add "${GITHUB_WORKSPACE}/throwaway-poc-beakmans-world/file"
+          git config --list
+          git commit -m "release!"
+          echo "zzz"
+          git push github HEAD:master --tags
+      env:
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.RELEASE_PAT }}
