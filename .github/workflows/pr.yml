@@ -22,11 +22,11 @@ jobs:
         #- name: Version - patch
       #  run: sh ./scripts/version.sh patch
       #- run: cat /github/workflow/event.json
-    - name: Dump GitHub context
-      env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "${GITHUB_CONTEXT}"
-    - name: If PR is minor
+      #- name: Dump GitHub context
+      #env:
+      #GITHUB_CONTEXT: ${{ toJson(github) }}
+      #run: echo "${GITHUB_CONTEXT}"
+    - name: Bump version
       env:
           PR_LABEL_PATCH: ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
           PR_LABEL_MAJOR: ${{ contains(github.event.pull_request.labels.*.name, 'major') }}
