@@ -34,10 +34,10 @@ jobs:
       run: |
         set -x
         LABEL="patch"
-        if [ ${PR_LABEL_MINOR} ]; then
+        if ${PR_LABEL_MINOR}; then
             LABEL="minor"
         fi
-        if [ ${PR_LABEL_MAJOR} ]; then
+        if ${PR_LABEL_MAJOR}; then
             LABEL="major"
         fi
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
