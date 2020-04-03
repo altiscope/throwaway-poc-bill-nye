@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Auto bump version
 
 on:
   pull_request:
