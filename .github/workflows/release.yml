@@ -35,6 +35,6 @@ jobs:
           git commit -m "${VERSION} released by ${GITHUB_ACTOR}"
           git tag ${VERSION}
           git push github HEAD:master --follow-tags
-          git push origin ${VERSION}
+          git push github ${VERSION}
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.RELEASE_PAT }}
